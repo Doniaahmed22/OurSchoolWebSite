@@ -1,0 +1,77 @@
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid lightgray;
+}
+
+.form-wrapper {
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.form-container {
+  margin-top: 30px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #070147;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+
+input, select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button {
+
+  width: 100%;
+  padding: 10px;
+  background-color: #070147;
+
+  border-radius: 4px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  border: 2px solid #070147;
+}
+
+button:disabled {
+  background: linear-gradient(135deg, #d3d3d3, #a9a9a9);
+  cursor: not-allowed;
+  opacity: 0.7;
+  border: none;
+}
+
+button:hover {
+  background-color: #fff;
+  color: #070147;
+}
+
+mat-error {
+  color: #f44336; /* Red color for error messages */
+  font-size: 0.875em; /* Slightly smaller font size */
+  margin-top: 4px; /* Margin to separate error message from input */
+  display: block;
+}

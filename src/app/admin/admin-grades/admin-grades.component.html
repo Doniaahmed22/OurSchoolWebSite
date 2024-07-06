@@ -1,0 +1,49 @@
+<app-admin-navigation-bar></app-admin-navigation-bar>
+<br>
+<main>
+  <form class="horizontal-form" (ngSubmit)="getTable(studentsForm)" #studentsForm="ngForm">
+    <select required name="level" ngModel>
+      <option value="" disabled selected>Level</option>
+      <option *ngFor="let level of levels" [value]=level.id>
+        {{ level.name }}
+      </option>
+    </select>
+    <select required name="department" ngModel>
+      <option value="" disabled selected>Department</option>
+      <option *ngFor="let department of departments" [value]=department.id>
+        {{ department.name }}
+      </option>
+    </select>
+    <button type="submit" [disabled]="studentsForm.invalid" #submitButton>Get Students</button>
+  </form>
+
+  <form class="search-container" (ngSubmit)="search()">
+    <input type="text" id="search-input" placeholder="Search" name="search" [(ngModel)]="searchInput">
+    <button id="search-button">Search</button>
+  </form>
+
+  <table [hidden]="!buttonClicked">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th *ngFor="let subject of subjects">{{ subject.name }}</th>
+      <th>Save</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr *ngFor="let student of filteredStudents;index as i">
+      <td class="name-td">{{ student.name }}</td>
+      <td *ngFor="let subject of subjects; index as j">
+        <input type="text" [(ngModel)]="this.studentsFinalGrade[i].subjectsFinalDegree[j].finalDegree">
+      </td>
+      <td>
+        <button type="submit" (click)="onSave(i)">Save</button>
+      </td>
+    </tr>
+
+
+    </tbody>
+  </table>
+
+</main>

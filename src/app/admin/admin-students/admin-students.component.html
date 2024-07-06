@@ -1,0 +1,29 @@
+<app-admin-navigation-bar></app-admin-navigation-bar>
+<form class="search-container" (ngSubmit)="search()">
+  <input type="text" id="search-input" placeholder="Search" name="search" [(ngModel)]="searchInput">
+  <button id="search-button">Search</button>
+</form>
+<table>
+  <thead>
+  <th>Name</th>
+  <th>Gender</th>
+  <th>Birthdate</th>
+  <th>Religion</th>
+  <th>Nationality</th>
+  <th>Delete</th>
+  </thead>
+  <tbody>
+  <tr *ngFor="let student of filteredStudents">
+    <td>{{ student.name }}</td>
+    <td>{{ student.gender }}</td>
+    <td>{{ student.birthDay }}</td>
+    <td>{{ student.religion }}</td>
+    <td>{{ student.nationality }}</td>
+
+    <td>
+      <!--      <button class="table-button"> Update</button>-->
+      <button class="table-button" (click)="onDelete(student.id)"> Delete</button>
+    </td>
+  </tr>
+  </tbody>
+</table>

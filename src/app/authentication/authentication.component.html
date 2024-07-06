@@ -1,0 +1,20 @@
+<main>
+  <div *ngIf="errorMessage" class="error-panel">
+    <div class="error-panel-body">
+      <a class="error-icon">⚠️</a>{{ errorMessage }}
+    </div>
+  </div>
+  <form (ngSubmit)="onSign(signForm)" #signForm="ngForm">
+    <div class="sign-in-container">
+      <h2>Our School</h2>
+      <img src="../../assets/images/logo-sign-in.jpg">
+
+      <label>Email</label>
+      <input type="text" name="email" required email ngModel>
+      <label>Password</label>
+      <input type="password" id="password" name="password" required ngModel>
+      <button type="submit" [disabled]="signForm.invalid">Sign in</button>
+      <!--      <a>Did you forget your password?</a>-->
+    </div>
+  </form>
+</main>
